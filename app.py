@@ -89,22 +89,22 @@ def main():
 	
 	# tokens = [ 'hombre', 'negocios', 'año', 'edad', 'volver', 'psiquiatra', 'semana', 'muerte', 'hijo',  'año', 'joven', 'enfrentado', 'depresión', 'abuso', 'sustancia', 'encontrado', 'rodeado', 'frasco', 'pastilla', 'vacio', 'nota', 'suicidar', 'incoherente',  'sentir', 'maltrecho', 'hijo', 'destrozado', 'vida', 'tener', 'sentido',  'semana', 'siguiente', 'ver', 'imagen', 'constante', 'hijo', 'obsesionar', 'pensar', 'impedido', 'abuso', 'sustancia', 'suicidio', 'preocupar', 'padre', 'dedicado', 'tiempo', 'carrera', 'hijo', 'sentir', 'constantemente', 'triste', 'retirar', 'vida', 'social', 'habitual', 'incapaz', 'concentrar', 'trabajo', 'tomar', 'vasos', 'vino', 'semana', 'beber', 'medio', 'botella', 'venir', 'noches', 'momento', 'psiquiatra', 'pleno', 'duelo', 'reacción', 'normal', 'concertar', 'cita', 'terapiar', 'apoyo', 'evaluar', 'evolución', 'clínico', 'seguir', 'ver', 'psiquiatra', 'semanalmente', 'sexto', 'semana', 'suicidio', 'síntoma', 'empeorado', 'lugar', 'pensar', 'forma', 'distinto', 'empezar', 'angustiar', 'idea', 'deber', 'haber', 'morir', 'hijo', 'seguir', 'costar', 'trabajo', 'dormir', 'tender', 'despertar', 'madrugada', 'mirar', 'techo', 'sentir', 'agobiado', 'cansancio', 'tristezar', 'sentimiento', 'inutilidad', 'síntoma', 'mejorar', 'notar', 'pérdida', 'persistente', 'inusual', 'confianza', 'interés', 'sexual', 'entusiasmo', 'preguntar', 'psiquiatra', 'seguir', 'duelo', 'normal', 'depresión', 'antecedent', 'episodio', 'depresivo', 'mayor', 'anterior', 'mejorar', 'psicoterapio', 'medicación', 'antidepresivo', 'sufrido', 'episodio', 'importante', 'tanto', 'año', 'antecedente', 'abuso', 'alcohol', 'sustancia', 'padre', 'depresivo', 'tratado', 'suicidado', 'anteriormente', 'familia']
 	
-	# with st.container():
-	# 	edges_token = bigram_edges(tokens)
-	# 	G = Token2Graph(edges_token)
-	# 	nt = Net(keywords_nodes = keywords_nodes,**viskargs)
-	# 	nt.from_nx(G)
-	# 	nt.options.edges.color = "#000000"
-	# 	nt.save_graph("textgraph.html")
-	# 	text = ' '.join(tokens)
-	# 	read_html()
-	# 	st.write(text)
-
 	with st.container():
-		st.write('---')
-		PlotGraph(tokens)
+		edges_token = bigram_edges(tokens)
+		G = Token2Graph(edges_token)
+		nt = Net(keywords_nodes = keywords_nodes,**viskargs)
+		nt.from_nx(G)
+		nt.options.edges.color = "#000000"
+		nt.save_graph("textgraph.html")
 		text = ' '.join(tokens)
+		read_html()
 		st.write(text)
+
+	# with st.container():
+	# 	st.write('---')
+	# 	PlotGraph(tokens)
+	# 	text = ' '.join(tokens)
+	# 	st.write(text)
 
 if __name__ == '__main__':
 	main()
